@@ -56,8 +56,8 @@ public class RelatedNodePropertyTest extends StructrRestTestBase {
 			.expect()
 				.statusCode(200)
 
-				.body("result.testSixIds[0]", equalTo(test01))
-			        .body("result.testSixIds[1]", equalTo(test02))
+				.body("result[0].testSixIds[0]", equalTo(test01))
+				.body("result[0].testSixIds[1]", equalTo(test02))
 
 			.when()
 				.get(concat("/test_sevens/", test09));
@@ -95,7 +95,7 @@ public class RelatedNodePropertyTest extends StructrRestTestBase {
 			.expect()
 				.statusCode(200)
 
-				.body("result.testSixIds", containsInAnyOrder(test03, test04))
+				.body("result[0].testSixIds", containsInAnyOrder(test03, test04))
 
 			.when()
 				.get(concat("/test_sevens/", test09));
@@ -126,7 +126,7 @@ public class RelatedNodePropertyTest extends StructrRestTestBase {
 			.expect()
 				.statusCode(200)
 
-				.body("result.oneToOneTestThree.id", equalTo(test01))
+				.body("result[0].oneToOneTestThree.id", equalTo(test01))
 
 			.when()
 				.get(concat("/test_fives/", test02));
@@ -181,7 +181,7 @@ public class RelatedNodePropertyTest extends StructrRestTestBase {
 			.expect()
 				.statusCode(200)
 
-				.body("result.manyToOneTestThree.id", equalTo(test01))
+				.body("result[0].manyToOneTestThree.id", equalTo(test01))
 
 			.when()
 				.get(concat("/test_fives/", test02));
@@ -234,7 +234,7 @@ public class RelatedNodePropertyTest extends StructrRestTestBase {
 			.expect()
 				.statusCode(200)
 
-				.body("result.manyToManyTestOnes[0]", equalTo(test01))
+				.body("result[0].manyToManyTestOnes[0]", equalTo(test01))
 
 			.when()
 				.get(concat("/test_fives/", test02));
@@ -288,7 +288,7 @@ public class RelatedNodePropertyTest extends StructrRestTestBase {
 			.expect()
 				.statusCode(200)
 
-				.body("result.oneToManyTestOnes[0]", equalTo(test01))
+				.body("result[0].oneToManyTestOnes[0]", equalTo(test01))
 
 			.when()
 				.get(concat("/test_fives/", test02));

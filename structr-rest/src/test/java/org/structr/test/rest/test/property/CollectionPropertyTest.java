@@ -70,7 +70,7 @@ public class CollectionPropertyTest extends StructrRestTestBase {
 			.filter(ResponseLoggingFilter.logResponseIfStatusCodeIs(500))
 		.expect()
 			.statusCode(200)
-			.body("result.manyToManyTestOnes", hasItems(testOneIds[0], testOneIds[1], testOneIds[2]))
+			.body("result[0].manyToManyTestOnes", hasItems(testOneIds[0], testOneIds[1], testOneIds[2]))
 		.when()
 			.get("/test_fives/" + testFiveId);
 

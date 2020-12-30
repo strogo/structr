@@ -80,7 +80,7 @@ public class TypeResourceRelationshipTest extends StructrRestTestBase {
 			.expect()
 				.statusCode(200)
 				.body("result_count",       equalTo(1))
-				.body("result",		    isEntity(TestTwo.class))
+				.body("result[0]",		    isEntity(TestTwo.class))
 			.when()
 				.get(concat("/TestTwo/", sourceNodeId));
 
